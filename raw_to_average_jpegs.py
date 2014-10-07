@@ -19,7 +19,7 @@ def parseArgs():
 
 
 def processFiles(fname):
-    subprocess.check_call(['ufraw-batch', '--wb=auto', '--overwrite',
+    subprocess.check_call(['ufraw-batch', '--wb=camera', '--overwrite', '--gamma=0.35', '--linearity=0.05',
                      '--size=2048', '--out-type=jpeg', fname])
     subprocess.check_call(['exiftool', '-overwrite_original', '-q', '-x', 'Orientation',
                      '-TagsFromFile', fname, fname.replace('.DNG', '.jpg')])
